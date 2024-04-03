@@ -269,7 +269,13 @@ def main():
     col1, col2 = st.columns(2)
     with col1:
         if st.button("PDF EQA"):
-            # Reset state specific to Text EQA here if necessary
+            #Reset state specific to Text EQA here
+            st.session_state['output_text'] = None
+            st.session_state['final_answer'] = None
+            # Reset PDF specific state variables
+            st.session_state['conversation'] = None
+            st.session_state['chat_history'] = None
+            # set the current page to PDF EQA mode
             st.session_state.current_page = "pdf"
     with col2:
         if st.button("Text EQA"):
